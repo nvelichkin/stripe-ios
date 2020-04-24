@@ -87,6 +87,8 @@
 #import "STPPaymentMethodFPX.h"
 #import "STPPaymentMethodFPXParams.h"
 #import "STPPaymentMethodParams.h"
+#import "STPPaymentMethodPrzelewy24.h"
+#import "STPPaymentMethodPrzelewy24Params.h"
 #import "STPPaymentMethodSEPADebit.h"
 #import "STPPaymentMethodSEPADebitParams.h"
 #import "STPPaymentMethodThreeDSecureUsage.h"

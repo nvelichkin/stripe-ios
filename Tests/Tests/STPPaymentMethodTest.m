@@ -82,6 +82,9 @@
             case STPPaymentMethodTypeAUBECSDebit:
                 XCTAssertEqualObjects(string, @"au_becs_debit");
                 break;
+            case STPPaymentMethodTypePrzelewy24:
+                XCTAssertEqualObjects(string, @"p24");
+                break;
             case STPPaymentMethodTypeUnknown:
                 XCTAssertNil(string);
                 break;

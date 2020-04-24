@@ -19,6 +19,7 @@ STPPaymentMethodBillingDetails,
 STPPaymentMethodCardParams,
 STPPaymentMethodFPXParams,
 STPPaymentMethodiDEALParams,
+STPPaymentMethodPrzelewy24Params,
 STPPaymentMethodSEPADebitParams;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -83,6 +84,11 @@ NS_ASSUME_NONNULL_BEGIN
  If this is an AU BECS Debit PaymentMethod, this contains details about the bank to debit.
  */
 @property (nonatomic, nullable) STPPaymentMethodAUBECSDebitParams *auBECSDebit;
+
+/**
+ If this is a Przelewy24 PaymentMethod, this contains additional details.
+ */
+@property (nonatomic, nullable) STPPaymentMethodPrzelewy24Params *przelewy24;
 
 /**
  Set of key-value pairs that you can attach to the PaymentMethod. This can be useful for storing additional information about the PaymentMethod in a structured format.
@@ -154,6 +160,16 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable STPPaymentMethodParams *)paramsWithAUBECSDebit:(STPPaymentMethodAUBECSDebitParams *)auBECSDebit
                                             billingDetails:(STPPaymentMethodBillingDetails *)billingDetails
                                                   metadata:(nullable NSDictionary<NSString *, NSString *> *)metadata;
+
+/**
+ Creates params for a Przelewy24 PaymentMethod;
+ @param przelewy24   An object containing additional Przelewy24 details.
+ @param billingDetails  An object containing the user's billing details. Note that `billingDetails.email` is required for Przelewy24 PaymentMethods.
+ @param metadata     Additional information to attach to the PaymentMethod.
+ */
++ (nullable STPPaymentMethodParams *)paramsWithPrzelewy24:(STPPaymentMethodPrzelewy24Params *)przelewy24
+                                           billingDetails:(STPPaymentMethodBillingDetails *)billingDetails
+                                                 metadata:(nullable NSDictionary<NSString *, NSString *> *)metadata;
 
 /**
  Creates params from a single-use PaymentMethod. This is useful for recreating a new payment method

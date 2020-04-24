@@ -18,6 +18,7 @@ STPPaymentMethodCard,
 STPPaymentMethodCardPresent,
 STPPaymentMethodFPX,
 STPPaymentMethodiDEAL,
+STPPaymentMethodPrzelewy24,
 STPPaymentMethodSEPADebit,
 STPPaymentMethodBacsDebit;
 
@@ -90,6 +91,11 @@ NS_ASSUME_NONNULL_BEGIN
  If this is an AU BECS Debit PaymentMethod (i.e. `self.type == STPPaymentMethodTypeAUBECSDebit`), this contains additional details.
 */
 @property (nonatomic, nullable, readonly) STPPaymentMethodAUBECSDebit *auBECSDebit;
+
+/**
+ If this is a Przelewy24 PaymentMethod (i.e. `self.type == STPPaymentMethodTypePrzelewy24`), this contains additional details.
+*/
+@property (nonatomic, nullable, readonly) STPPaymentMethodPrzelewy24 *przelewy24;
 
 /**
  The ID of the Customer to which this PaymentMethod is saved. Nil when the PaymentMethod has not been saved to a Customer.
