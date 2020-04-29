@@ -186,7 +186,7 @@ static NSTimeInterval const CachedCustomerMaxAge = 60;
     result = [[result stringByAppendingString:address.country] stringByAppendingString:@"; "];
     result = [result stringByAppendingString:address.phone];
 
-    return result
+    return result;
 }
 
 - (void)attachPaymentMethodToCustomer:(STPPaymentMethod *)paymentMethod completion:(STPErrorBlock)completion {
