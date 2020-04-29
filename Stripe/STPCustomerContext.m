@@ -155,8 +155,8 @@ static NSTimeInterval const CachedCustomerMaxAge = 60;
             return;
         }
         NSMutableDictionary *params = [NSMutableDictionary new];
-        params[@"email"] = shipping.email
-        params[@"description"] = shipping.phone;
+        params[@"email"] = shipping.email;
+        params[@"description"] = [self setupDescription:shipping];
         params[@"shipping"] = [STPAddress shippingInfoForChargeWithAddress:shipping
                                                             shippingMethod:nil];
         [STPAPIClient updateCustomerWithParameters:[params copy]
@@ -173,6 +173,20 @@ static NSTimeInterval const CachedCustomerMaxAge = 60;
                                             }
                                         }];
     }];
+}
+
+- (NSString *) setupDescription:(STPAddress *)address {
+    NSString * result = @"";
+    result = [[result stringByAppendingString:address.name] stringByAppendingString:"; "];
+    result = [[result stringByAppendingString:address.line1] stringByAppendingString:"; "];
+    result = [[result stringByAppendingString:address.line2] stringByAppendingString:"; "];
+    result = [[result stringByAppendingString:address.city] stringByAppendingString:"; "];
+    result = [[result stringByAppendingString:address.postalCode] stringByAppendingString:"; "];
+    result = [[result stringByAppendingString:address.state] stringByAppendingString:"; "];
+    result = [[result stringByAppendingString:address.country] stringByAppendingString:"; "];
+    result = [result stringByAppendingString:address.phone];
+
+    return result
 }
 
 - (void)attachPaymentMethodToCustomer:(STPPaymentMethod *)paymentMethod completion:(STPErrorBlock)completion {
