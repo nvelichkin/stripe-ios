@@ -177,13 +177,13 @@ static NSTimeInterval const CachedCustomerMaxAge = 60;
 
 - (NSString *) setupDescription:(STPAddress *)address {
     NSString * result = @"";
-    result = [[result stringByAppendingString:address.name] stringByAppendingString:"; "];
-    result = [[result stringByAppendingString:address.line1] stringByAppendingString:"; "];
-    result = [[result stringByAppendingString:address.line2] stringByAppendingString:"; "];
-    result = [[result stringByAppendingString:address.city] stringByAppendingString:"; "];
-    result = [[result stringByAppendingString:address.postalCode] stringByAppendingString:"; "];
-    result = [[result stringByAppendingString:address.state] stringByAppendingString:"; "];
-    result = [[result stringByAppendingString:address.country] stringByAppendingString:"; "];
+    result = [[result stringByAppendingString:address.name] stringByAppendingString:@"; "];
+    result = [[result stringByAppendingString:address.line1] stringByAppendingString:@"; "];
+    result = [[result stringByAppendingString:address.line2] stringByAppendingString:@"; "];
+    result = [[result stringByAppendingString:address.city] stringByAppendingString:@"; "];
+    result = [[result stringByAppendingString:address.postalCode] stringByAppendingString:@"; "];
+    result = [[result stringByAppendingString:address.state] stringByAppendingString:@"; "];
+    result = [[result stringByAppendingString:address.country] stringByAppendingString:@"; "];
     result = [result stringByAppendingString:address.phone];
 
     return result
